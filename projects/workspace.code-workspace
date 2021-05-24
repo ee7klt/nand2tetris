@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../../nand2tetris/tools/builtInChips"
+		},
+		{
+			"path": "../../../nand2tetris/projects/03"
+		},
+		{
+			"path": "../../../nand2tetris/projects"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}
