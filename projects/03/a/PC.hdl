@@ -21,10 +21,11 @@ CHIP PC {
     Inc16(in=fb,out=outinc); 
     // if load, select in (without incrementing). else increment
     Mux16(a=outinc,b=in,sel=load,out=outinorinc);   
-    // update with either in or inc
-    Register(in=outinorinc,load=true,out=out, out=fb); 
+    // update only if load or inc
+    Or(a=load,b=inc,out=update);
+    Register(in=outinorinc,load=update,out=out, out=fb); 
 
-    
+
    // Mux16(a=outload,b=false,sel=reset,out=outreset);
     //Mux16(a=outload,b=outloadplusone,sel=inc,out=out,out=fb);  //output incremented value and feed it in to input of register if not loading from input
 }
