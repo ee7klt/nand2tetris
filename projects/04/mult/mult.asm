@@ -9,6 +9,32 @@
 // Put your code here.
 // loop and addition
 
+// for (i=0; i<M[0]; i++) {
+//    acc += M[1]
+// }
+
+// @sum: M[sum] will be the accumulator. initialized to 0
+
+
+@R0
+D=M    //D = M[0]
+
+
+@sum
+M=0          // initialize accumulator to 0
+
+
+(STOP)       // set the final value of accumulator to RAM[2]
+    @sum
+    D=M      // temporarily store M[sum] in D register
+    @R2
+    M=D       // set M[2] = M[sum]
+
+
+(END)
+    @END
+    0;JMP
+
 
 
 
