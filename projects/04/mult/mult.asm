@@ -15,13 +15,45 @@
 
 // @sum: M[sum] will be the accumulator. initialized to 0
 
-
+// setup
 @R0
-D=M    //D = M[0]
+D=M       
+@first
+M=D    // first = R0
 
+@R1
+D=M
+@second
+M=D   // second = R1
+
+@i 
+M=1    // i = 1
 
 @sum
 M=0          // initialize accumulator to 0
+
+(LOOP)
+    @i
+    D=M
+    @second
+    D=M-D
+    @STOP
+    D;JLT     // STOP if i more than second
+
+    @first
+    D=M
+    @sum
+    M = M + D   // add first to accumulator
+
+    @i
+    M=M+1     // increment index
+    @LOOP
+    0;JMP     // unconditional jump
+
+
+
+
+
 
 
 (STOP)       // set the final value of accumulator to RAM[2]
