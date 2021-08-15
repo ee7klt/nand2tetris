@@ -48,7 +48,7 @@ M = D			// address = 16384 (base address of the Hack screen)
  
    @i
    M = M + 1	// i = i + 1
-   @32
+   @1
    D = A
    @address
    M = D + M	// address = address + 32
