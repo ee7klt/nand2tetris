@@ -9,9 +9,10 @@ D = M
 
 @PRESSED
 D;JGT     // if key is depressed, scan code appears
+          // so will be GT 0
 
 @UNPRESSED
-D;JMP
+D;JMP       // if not depressed, scan code is 0
 
 (UNPRESSED)
    @0

@@ -40,4 +40,16 @@ CHIP CPU {
 
     PARTS:
     // Put your code here:
+    // op-code. 0 = a-instruction. 1 = c-instruction
+    Mux16(a=instruction[0..14] ,b=ALUout ,sel=instruction[15] ,out=opout)
+    ARegister(in=opout ,load=instruction[15] ,out=Aout)
+    Mux16(a=Aout,b=inM,sel=)
+    ALU(x= ,y= ,zx=instruction[11] ,nx= instruction[10],zy=instruction[9] ,ny=instruction[8] ,f= instruction[7],no=instruction[6] ,out=ALUout ,zr=ZRout,ng=NGout )
+    
+    PC(in= ,load= ,inc= ,reset=reset ,out= )
+    
+    DRegister(in= ,load= ,out= )
+
+
+
 }
